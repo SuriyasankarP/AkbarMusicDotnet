@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Models;
+using FinalProject.Models.Song;
 
 namespace FinalProject.Data
 {
@@ -15,5 +16,7 @@ namespace FinalProject.Data
         }
 
         public DbSet<FinalProject.Models.User> User { get; set; } = default!;
+
+        public DbSet<FinalProject.Models.Song.Song> Song { get; set; }
     }
 }

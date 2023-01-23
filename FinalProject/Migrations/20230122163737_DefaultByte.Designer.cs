@@ -3,6 +3,7 @@ using System;
 using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(FinalProjectContext))]
-    partial class FinalProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20230122163737_DefaultByte")]
+    partial class DefaultByte
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,17 +35,17 @@ namespace FinalProject.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("FileLink")
+                    b.Property<byte[]>("File")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("longblob");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PosterLink")
+                    b.Property<byte[]>("Poster")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("longblob");
 
                     b.HasKey("Id");
 
