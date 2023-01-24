@@ -29,7 +29,7 @@ namespace FinalProject
         [HttpPost("Register")]
         public async Task<IActionResult> Register(UserRegisterReq request)
         {
-            if(_context.User.Any( u => u.Email == request.Email))
+            if(_context.User.Any( u => u.Email == request.Email) && _context.User.Any(u => u.UserName==request.UserName))
             {
                 return BadRequest("User Already Exists");
             }
@@ -100,6 +100,7 @@ namespace FinalProject
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.Email),
+                new Claim("UserId",user.Id.ToString()),
                 new Claim("UserName",user.UserName),
                 new Claim("UserType",user.UserType),
 

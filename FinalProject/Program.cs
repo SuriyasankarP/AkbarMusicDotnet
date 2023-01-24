@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿global using FinalProject.Models.Playlist;
+using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 var policyName = "_myAllowSpecificOrigins";
 var connectionString = "Server=localhost;database=finalproject;user=root;password=12345678;";

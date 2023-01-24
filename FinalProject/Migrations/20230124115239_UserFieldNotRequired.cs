@@ -4,7 +4,7 @@
 
 namespace FinalProject.Migrations
 {
-    public partial class DefaultByte : Migration
+    public partial class UserFieldNotRequired : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
