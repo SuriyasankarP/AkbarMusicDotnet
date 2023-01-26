@@ -49,9 +49,22 @@ namespace FinalProject
             await _context.SaveChangesAsync();
             return Ok();
     }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PlayList>> GetPlaylistDetail(int id)
+        {
+            var Playlist = await _context.PlayList.FindAsync(id);
+
+            if (Playlist == null)
+            {
+                return NotFound();
+            }
 
 
-    [HttpDelete("{id}")]
+            return Ok();
+        }
+
+
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlayList(int id)
         {
             var playList = await _context.PlayList.FindAsync(id);

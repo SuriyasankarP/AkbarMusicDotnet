@@ -28,50 +28,8 @@ namespace FinalProject
             return await _context.Song.ToListAsync();
         }
 
-        // GET: api/Songs/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Song>> GetSong(int id)
-        {
-            var song = await _context.Song.FindAsync(id);
+        
 
-            if (song == null)
-            {
-                return NotFound();
-            }
-
-            return song;
-        }
-
-        // PUT: api/Songs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutSong(int id, Song song)
-        {
-            if (id != song.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(song).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SongExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
 
         // POST: api/Songs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

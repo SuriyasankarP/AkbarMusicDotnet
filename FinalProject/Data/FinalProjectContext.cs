@@ -21,5 +21,7 @@ namespace FinalProject.Data
         public DbSet<FinalProject.Models.Song.Song> Song { get; set; }
 
         public DbSet<FinalProject.Models.Playlist.PlayList> PlayList { get; set; }
+        public DbSet<FinalProject.Models.Song.PlayListSong> PlayListSong { get; set; }
+
     }
 }
