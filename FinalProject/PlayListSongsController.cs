@@ -33,8 +33,7 @@ namespace FinalProject
 
         
 
-        // POST: api/PlayListSongs
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+       
         [HttpPost]
         public async Task<ActionResult<PlayListSong>> PostPlayListSong(PlayListSong playListSong)
         {
@@ -42,22 +41,6 @@ namespace FinalProject
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPlayListSong", new { id = playListSong.Id }, playListSong);
-        }
-
-        // DELETE: api/PlayListSongs/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePlayListSong(int id)
-        {
-            var playListSong = await _context.PlayListSong.FindAsync(id);
-            if (playListSong == null)
-            {
-                return NotFound();
-            }
-
-            _context.PlayListSong.Remove(playListSong);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
 
         private bool PlayListSongExists(int id)

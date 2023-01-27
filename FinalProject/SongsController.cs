@@ -28,8 +28,20 @@ namespace FinalProject
             return await _context.Song.ToListAsync();
         }
 
-        
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Song>> GetPlaylistDetail(int id)
+        {
+            var song = await _context.Song.FindAsync(id);
+
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+
+            return Ok();
+        }
 
         // POST: api/Songs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
